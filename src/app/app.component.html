@@ -1,19 +1,25 @@
-<div style="display: flex; height: 38%; min-height: 38%; background-color: cornflowerblue; " >
-  <button type="button" (click)="toggleMove()">Animacja</button>
+<div style="display: flex; flex-direction: column; height:100%">
+  <app-header
+    style="display: flex; background-color: cornflowerblue; "
+    [headerHeight]="headerHeight"
+    (startAnimate)="toggleMove()">
+
+  </app-header>
+
+  <div style="display: flex; flex: 1;">
+
+    <app-left-side [leftWidth]="leftWidth" style="background-color: crimson">
+    </app-left-side>
+
+    <app-content style="flex: 1; background-color: bisque">
+    </app-content>
+
+    <app-right-side [rightWidth]="rightWidth" style="background-color: crimson">
+    </app-right-side>
+
+  </div>
 </div>
 
-<div class="wrapper" style="display: flex; height: 62%; min-height: 62%;">
-
-  <app-left-side [leftWidth]="leftWidth" style="background-color: crimson">
-  </app-left-side>
-
-  <app-content style="flex: 1; background-color: bisque">
-  </app-content>
-
-  <app-right-side [rightWidth]="rightWidth" style="background-color: crimson">
-  </app-right-side>
-
-</div>
 
 
 

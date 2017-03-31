@@ -1,0 +1,4 @@
+:host{
+  transition: height 500ms linear;
+  display: block;
+}
