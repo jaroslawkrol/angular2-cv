@@ -1,4 +1,5 @@
 :host{
   transition: width 1000ms linear;
+  transition-delay: 500ms;
   display: block;
 }
