@@ -10,6 +10,7 @@ import {LeftSideComponent} from './left-side/left-side.component';
 import { ContentComponent } from './content/content.component';
 import { RightSideComponent } from './right-side/right-side.component';
 import { HeaderComponent } from './header/header.component';
+import { CircleComponent } from './circle/circle.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HeaderComponent } from './header/header.component';
     LeftSideComponent,
     ContentComponent,
     RightSideComponent,
-    HeaderComponent
+    HeaderComponent,
+    CircleComponent
   ],
   imports: [
     BrowserModule,

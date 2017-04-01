@@ -11,6 +11,8 @@ export class HeaderComponent implements OnInit {
   @HostBinding("style.height")
   headerHeight: string;
 
+  topPosition: string = 'calc(50% - 150px)';
+
   @Output() startAnimate = new EventEmitter<boolean>();
 
   constructor() { }
@@ -20,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   toggleMove() {
     this.startAnimate.emit(true);
+    this.topPosition = (this.topPosition === 'calc(50% - 150px)' ? '10%' : 'calc(50% - 150px)');
   }
 
 }
