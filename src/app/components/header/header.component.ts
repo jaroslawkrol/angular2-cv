@@ -1,12 +1,12 @@
-import {Component, OnInit, Output, EventEmitter, HostBinding, Input} from '@angular/core';
+import {Component, OnInit, HostBinding, Input} from '@angular/core';
 import {Store} from "@ngrx/store";
-import {FIRST_STEP, State} from "../reducers/step.reducer";
 import {Observable} from "rxjs";
+import {State, FIRST_STEP} from "../../reducers/step.reducer";
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  templateUrl: 'header.component.html',
+  styleUrls: ['header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
