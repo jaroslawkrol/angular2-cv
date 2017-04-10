@@ -1,4 +1,7 @@
 import {Component, OnInit, Output, EventEmitter, HostBinding, Input} from '@angular/core';
+import {Store} from "@ngrx/store";
+import {FIRST_STEP, State} from "../reducers/step.reducer";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -11,18 +14,17 @@ export class HeaderComponent implements OnInit {
   @HostBinding("style.height")
   headerHeight: string;
 
-  topPosition: string = 'calc(50% - 150px)';
+  circleTopPosition: Observable<string>;
 
-  @Output() startAnimate = new EventEmitter<boolean>();
-
-  constructor() { }
+  constructor(private store: Store<State>) {
+    this.circleTopPosition = store.select('circleTopPosition');
+  }
 
   ngOnInit() {
   }
 
   toggleMove() {
-    this.startAnimate.emit(true);
-    this.topPosition = (this.topPosition === 'calc(50% - 150px)' ? '10%' : 'calc(50% - 150px)');
+    this.store.dispatch({ type: FIRST_STEP });
   }
 
 }

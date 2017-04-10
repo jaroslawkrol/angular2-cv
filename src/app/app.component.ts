@@ -1,4 +1,8 @@
 import {Component} from '@angular/core';
+import {Store} from "@ngrx/store";
+
+import {Observable} from "rxjs";
+import {State} from "./reducers/step.reducer";
 
 @Component({
   selector: 'app-root',
@@ -8,22 +12,14 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
-  state: string = 'inactive';
+  headerHeight: Observable<string>;
+  leftWidth: Observable<string>;
+  rightWidth: Observable<string>;
 
-  headerHeight: string = '50%';
-
-  leftWidth: string = '0%';
-  rightWidth: string = '0%';
-
-  toggleMove() {
-    this.state = (this.state === 'inactive' ? 'active' : 'inactive');
-
-    this.leftWidth = (this.leftWidth === '0%' ? '28%' : '0%');
-    this.rightWidth = (this.rightWidth === '0%' ? '10%' : '0%');
-
-    this.headerHeight = (this.headerHeight === '50%' ? '38%' : '50%');
-
-    console.log(this.state);
+  constructor(private store: Store<State>){
+    this.headerHeight = store.select('headerHeight');
+    this.leftWidth = store.select('leftWidth');
+    this.rightWidth = store.select('rightWidth');
   }
 
 }

@@ -1,20 +1,19 @@
 <div style="display: flex; flex-direction: column; height:100%">
   <app-header
     style="display: flex; flex-direction: column; background-color: cornflowerblue;"
-    [headerHeight]="headerHeight"
-    (startAnimate)="toggleMove()">
+    [headerHeight]="headerHeight | async">
 
   </app-header>
 
   <div style="display: flex; flex: 1;">
 
-    <app-left-side [leftWidth]="leftWidth" style="background-color: crimson">
+    <app-left-side [leftWidth]="leftWidth | async" style="background-color: crimson">
     </app-left-side>
 
     <app-content style="flex: 1; background-color: bisque">
     </app-content>
 
-    <app-right-side [rightWidth]="rightWidth" style="background-color: crimson">
+    <app-right-side [rightWidth]="rightWidth | async" style="background-color: crimson">
     </app-right-side>
 
   </div>
