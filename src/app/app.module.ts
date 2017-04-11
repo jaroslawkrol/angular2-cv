@@ -12,7 +12,7 @@ import { RightSideComponent } from './components/right-side/right-side.component
 import { HeaderComponent } from './components/header/header.component';
 import { CircleComponent } from './components/circle/circle.component';
 import {StoreModule} from "@ngrx/store";
-import {layoutReducer} from "./reducers/step.reducer";
+import * as fromRoot from "./reducers/root.reducer";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import {layoutReducer} from "./reducers/step.reducer";
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    StoreModule.provideStore(layoutReducer)
+    StoreModule.provideStore(fromRoot.reducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

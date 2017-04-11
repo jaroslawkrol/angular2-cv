@@ -24,8 +24,7 @@ const firstStepState: State = {
 export const FIRST_STEP = 'FIRST_STEP';
 export const RESET = 'RESET';
 
-export function layoutReducer(state: any = initialState, action: Action): any {
-  console.log('layoutReducer', state)
+export function reducer(state: any = initialState, action: Action): any {
   switch (action.type) {
     case FIRST_STEP:
       return firstStepState;
@@ -37,3 +36,9 @@ export function layoutReducer(state: any = initialState, action: Action): any {
       return state;
   }
 }
+
+
+export const getHeaderHeight = (state: State) => state.headerHeight;
+export const getLeftWidth = (state: State) => state.leftWidth;
+export const getRightWidth = (state: State) => state.rightWidth;
+export const getCircleTopPosition = (state: State) => state.circleTopPosition;

@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {Store} from "@ngrx/store";
 
 import {Observable} from "rxjs";
-import {State} from "./reducers/step.reducer";
+
+import * as fromRoot from './reducers/root.reducer';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,10 @@ export class AppComponent {
   leftWidth: Observable<string>;
   rightWidth: Observable<string>;
 
-  constructor(private store: Store<State>){
-    this.headerHeight = store.select('headerHeight');
-    this.leftWidth = store.select('leftWidth');
-    this.rightWidth = store.select('rightWidth');
+  constructor(private store: Store<fromRoot.State>){
+    this.headerHeight = store.select(fromRoot.getLayoutHeaderHeight);
+    this.leftWidth = store.select(fromRoot.getLayoutLeftWidth);
+    this.rightWidth = store.select(fromRoot.getLayoutRightWidth);
   }
 
 }

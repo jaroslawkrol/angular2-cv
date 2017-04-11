@@ -1,7 +1,8 @@
 import {Component, OnInit, HostBinding, Input} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {State, FIRST_STEP} from "../../reducers/step.reducer";
+import * as fromRoot from "../../reducers/root.reducer";
+import * as layout from "../../actions/layout.actions"
 
 @Component({
   selector: 'app-header',
@@ -16,15 +17,15 @@ export class HeaderComponent implements OnInit {
 
   circleTopPosition: Observable<string>;
 
-  constructor(private store: Store<State>) {
-    this.circleTopPosition = store.select('circleTopPosition');
+  constructor(private store: Store<fromRoot.State>) {
+    this.circleTopPosition = store.select(fromRoot.getLayoutCircleTopPosition);
   }
 
   ngOnInit() {
   }
 
   toggleMove() {
-    this.store.dispatch({ type: FIRST_STEP });
+    this.store.dispatch(new layout.FirstStepAction());
   }
 
 }
