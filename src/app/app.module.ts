@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CircleComponent } from './components/circle/circle.component';
 import {StoreModule} from "@ngrx/store";
 import * as fromRoot from "./reducers/root.reducer";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import * as fromRoot from "./reducers/root.reducer";
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    StoreModule.provideStore(fromRoot.reducer)
+    StoreModule.provideStore(fromRoot.reducer),
+    StoreDevtoolsModule.instrumentStore({
+      maxAge: 5
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
