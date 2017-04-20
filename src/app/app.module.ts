@@ -17,6 +17,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {EffectsModule} from "@ngrx/effects";
 import {CategoryEffects} from "./effects/category.effects";
 import {CategoriesService} from "./services/categories.service";
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {CategoriesService} from "./services/categories.service";
     ContentComponent,
     RightSideComponent,
     HeaderComponent,
-    CircleComponent
+    CircleComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
