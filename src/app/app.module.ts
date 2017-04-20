@@ -14,6 +14,9 @@ import { CircleComponent } from './components/circle/circle.component';
 import {StoreModule} from "@ngrx/store";
 import * as fromRoot from "./reducers/root.reducer";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {EffectsModule} from "@ngrx/effects";
+import {CategoryEffects} from "./effects/category.effects";
+import {CategoriesService} from "./services/categories.service";
 
 @NgModule({
   declarations: [
@@ -33,9 +36,10 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
     StoreModule.provideStore(fromRoot.reducer),
     StoreDevtoolsModule.instrumentStore({
       maxAge: 5
-    })
+    }),
+    EffectsModule.run(CategoryEffects)
   ],
-  providers: [],
+  providers: [CategoriesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
